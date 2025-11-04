@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+<head>
+	<title>Our Love Story</title>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<style type="text/css">
+		@font-face {
+			font-family: digit;
+			src: url('./fonts/digital-7_mono.ttf') format("truetype");
+		}
+	</style>
+	<link href="css/default.css" type="text/css" rel="stylesheet">
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript" src="js/garden.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
+</head>
+
+<body>
+	<div id="mainDiv">
+		<div id="content">
+			<div id="knownMessages">
+				<div style="font-size: 28px; margin-bottom: 15px;">We have known each other for</div>
+				<div id="knowElapseClock"></div>
+				<div id="ourStory" style="padding-top:20px;">
+					<img src="images/heart.png" style="height:23px; vertical-align: middle;" >
+					<a class="story" href="view/index2013.html">
+						our story
+					</a>
+				</div>
+			</div>
+
+			<div id="code">
+				<span class="comments">//Sep 16,2006, I was born in Mumbai.</span><br /> 
+				Boy i = <span class="keyword">new</span> Boy(<span class="string">"Rutik"</span>);<br/>
+				
+				<span class="comments">//Nov 04,2007, You were born in Mumbai.</span><br /> 
+				Girl u = <span class="keyword">new</span> Girl(<span class="string">"Juie"</span>);<br />
+				
+				<span class="comments">//In 2022, I joined SVJC.</span><br /> 
+				i.join(<span class="string">"SVJC" , year=2023</span>);<br /> 
+				
+				
+				<span class="comments">//In 2023, She joined the same college as me, my junior.</span><br />
+				u.join(<span class="string">"SVJC" , year=2023</span>);<br />
+				
+				<span class="comments">//Jan 15, 2024 — We met for the first time, at the bus stop.</span><br /> i.met(u);
+				<br />
+				<span class="comments">//Nov 23, 2024 — From strangers to best friends.</span><br /> i.bestFriend(u);
+				<br />
+				<span class="comments">//Jan 29, 2025 — Love found its way.</span><br /> u.Relationship(i);
+				<br />
+				<span class="comments">//May 31, 2025 — Our first hug, under the stars.</span><br /> u.Hug(i);
+				<br />
+				<span class="comments">//July 02, 2025 — The first kiss, and everything changed.</span><br /> u.Kiss(i);
+				<br />
+
+			</div>
+
+			<div id="loveHeart">
+				<canvas id="garden"></canvas>
+				<div id="words">
+					<div id="messages">
+						Juie, I have fallen in love with you for
+						<div id="elapseClock"></div>
+					</div>
+					<div id="loveu">
+						Love u so much.<br/>
+						<div class="signature">- Rutik</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var offsetX = $("#loveHeart").width() / 2;
+		var offsetY = $("#loveHeart").height() / 2 - 55;
+		var together = new Date();
+		together.setFullYear(2025, 0, 29);
+		together.setHours(20);
+		together.setMinutes(0);
+		together.setSeconds(0);
+		together.setMilliseconds(0);
+
+		var known = new Date();
+		known.setFullYear(2024, 0, 15);
+		known.setHours(19);
+		known.setMinutes(0);
+		known.setSeconds(0);
+		known.setMilliseconds(0);
+
+		if (!document.createElement('canvas').getContext) {
+			var msg = document.createElement("div");
+			msg.id = "errorMsg";
+			msg.innerHTML = "Your browser doesn't support HTML5!<br/>Recommend use Chrome 14+/IE 9+/Firefox 7+/Safari 4+";
+			document.body.appendChild(msg);
+			$("#code").css("display", "none")
+			$("#copyright").css("position", "absolute");
+			$("#copyright").css("bottom", "10px");
+			document.execCommand("stop");
+		} else {
+			setTimeout(function () {
+				startHeartAnimation();
+			}, 1000);
+
+			// timeElapse(together);
+			setInterval(function () {
+				timeElapse(together);
+			}, 500);
+
+			setInterval(function () {
+				timeElapseKnowm(known);
+			}, 500);
+
+			adjustCodePosition();
+			$("#code").typewriter();
+		}
+	</script>
+</body>
+
+</html>
